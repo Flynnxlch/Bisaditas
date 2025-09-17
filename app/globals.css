@@ -14,8 +14,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Force light background on dark system theme to avoid black gaps */
+    --background: #ffffff;
+    --foreground: #171717;
   }
 }
 

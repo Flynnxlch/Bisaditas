@@ -55,7 +55,7 @@ export default function Jobland() {
 
           <a
             href="#"
-            className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm shadow hover:shadow-md self-start"
+            className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm shadow hover:shadow-md self-start transition hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
           >
             Lihat Pekerjaan Lainnya
           </a>
@@ -64,7 +64,7 @@ export default function Jobland() {
         {/* Grid */}
         <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {jobs.map((job) => (
-            <article key={job.id} className="relative rounded-2xl border border-slate-200 bg-white p-5 hover:shadow-sm transition-shadow">
+            <article key={job.id} className="relative rounded-2xl border border-slate-200 bg-white p-5 hover:shadow-md transition-all">
               {/* status chip */}
               {job.urgent && (
                 <span className="absolute right-4 top-4 text-[11px] font-semibold text-red-500">ASAP</span>
@@ -107,7 +107,7 @@ export default function Jobland() {
 
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-slate-900">{job.salary}</div>
-                <a href="#" className="text-blue-600 text-sm font-medium">Lamar</a>
+                <a href="#" className="text-blue-600 hover:text-blue-700 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded-md px-1">Lamar</a>
               </div>
             </article>
           ))}
@@ -115,11 +115,13 @@ export default function Jobland() {
 
         {/* CTA on mobile */}
         <div className="sm:hidden mt-6 text-center">
-          <a href="#" className="inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm shadow">Lihat Pekerjaan Lainnya</a>
+          <a href="#" className="inline-flex items-center px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm shadow hover:shadow-md transition hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">Lihat Pekerjaan Lainnya</a>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 

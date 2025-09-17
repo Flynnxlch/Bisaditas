@@ -19,22 +19,26 @@ export default function Navbar() {
     <header className="w-full bg-white border-b">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-8 h-8">
             <Image src="/logos/logobd.jpg" alt="BisaDitas" fill className="object-contain" />
           </div>
-          <span className="text-base font-semibold text-slate-900">BisaDitas</span>
+          <span className="text-base font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">BisaDitas</span>
         </Link>
 
         
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm ${active ? "text-blue-600 font-medium" : "text-slate-600 hover:text-slate-900"}`}
+                className={`relative text-sm px-3 py-2 rounded-full transition-colors ${
+                  active
+                    ? "text-blue-700 font-semibold bg-blue-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60`}
               >
                 {item.label}
                 {active && <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-600 rounded-full" />}
@@ -46,15 +50,15 @@ export default function Navbar() {
         
         <div className="flex items-center gap-4">
           <Link
-            href="/auth/register"
-            className="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-black text-white text-sm hover:opacity-95"
-            aria-label="Register"
+            href="/auth/login"
+            className="hidden md:inline-flex items-center px-6 py-2 rounded-full bg-black text-white text-[13px] tracking-wide transition-transform hover:opacity-95 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+            aria-label="Login"
           >
-            Register
+            Daftar
           </Link>
 
          
-          <button className="md:hidden p-2 rounded-md bg-slate-100" aria-label="Open menu">
+          <button className="md:hidden p-2 rounded-md bg-slate-100 hover:bg-slate-200 active:scale-[0.98] transition" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8h16M4 16h16" />
             </svg>

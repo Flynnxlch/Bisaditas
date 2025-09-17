@@ -28,7 +28,7 @@ function StarRow() {
 
 function TestiCard({ text, name, role }) {
   return (
-    <div className="rounded-2xl border border-slate-200 p-5 bg-white">
+    <div className="rounded-2xl border border-slate-200 p-5 bg-white hover:shadow-md transition-shadow">
       <p className="text-slate-600 text-sm mb-5">“{text}”</p>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ export default function Testimony() {
             <p className="text-slate-500 text-sm sm:text-base mb-5 max-w-lg">
               Semua yang perlu Anda ketahui tentang BisaDitas ada di sini. Cari jawabannya atau langsung hubungi kami.
             </p>
-            <a href="#" className="inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm shadow">Tanya BisaDitas</a>
+            <a href="#" className="inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm shadow hover:shadow-md transition-transform hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">Tanya BisaDitas</a>
           </div>
 
           <div>
@@ -89,7 +89,7 @@ export default function Testimony() {
               {faqs.map((item, idx) => (
                 <li key={idx} className="p-4 sm:p-5">
                   <button
-                    className="w-full flex items-center justify-between text-left text-slate-900 font-medium text-sm sm:text-base"
+                    className="w-full flex items-center justify-between text-left text-slate-900 font-semibold text-sm sm:text-base hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded-md"
                     onClick={() => setOpen(open === idx ? -1 : idx)}
                   >
                     {item.q}
@@ -132,5 +132,7 @@ export default function Testimony() {
     </section>
   );
 }
+
+
 
 

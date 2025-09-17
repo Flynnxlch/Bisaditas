@@ -32,10 +32,10 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900 mb-6">
+        <h1 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900 mb-6">
           <span className="whitespace-nowrap">
             Temukan Pekerjaan {" "}
-            <span className="relative inline-block text-blue-600">
+            <span className="relative inline-block text-blue-600 font-extrabold">
               Strategis
               {/* underline extended and more curved */}
               <svg className="absolute -bottom-2 left-0 w-[135%] h-4 text-blue-500" viewBox="0 0 140 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,10 +75,10 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6">
-          <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full shadow-md hover:shadow-lg">
+          <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md hover:shadow-lg transition hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
             Coba Solusi Kami
           </a>
-          <a href="#" className="inline-flex items-center gap-2 px-6 py-3 border rounded-full text-slate-700 bg-white hover:bg-slate-50">
+          <a href="#" className="inline-flex items-center gap-2 px-6 py-3 border rounded-full text-slate-700 bg-white hover:bg-slate-50 hover:text-slate-900 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
             Kontak Kami
           </a>
         </div>
