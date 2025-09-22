@@ -1,6 +1,7 @@
 "use client";
 
 import EyeToggle from "@/components/EyeToggle";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,12 +11,10 @@ export default function LoginForm(props) {
   return (
     <div className="max-w-md w-full mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 mb-8">
-        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-          </svg>
+        <span className="relative w-8 h-8">
+          <Image src="/logos/logox.png" alt="BisaDitas" fill className="object-contain" />
         </span>
-        <span className="text-lg font-semibold text-slate-900">BisaDitas</span>
+        <span className="text-sm font-semibold leading-none text-slate-900">BisaDitas</span>
       </Link>
 
       <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Selamat Datang Kembali!</h1>
@@ -46,7 +45,7 @@ export default function LoginForm(props) {
           </label>
           <Link href="#" className="text-sm text-blue-600 hover:text-blue-700">Lupa Password</Link>
         </div>
-        <button type="submit" className="w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium shadow transition">Login</button>
+        <Link href="/member/dashboard" className="w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium shadow transition">Login</Link>
         <div className="flex items-center gap-4 my-4">
           <span className="flex-1 h-px bg-slate-200" />
           <span className="text-xs text-slate-400">Atau Login dengan</span>

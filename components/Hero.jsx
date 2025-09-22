@@ -1,6 +1,8 @@
 // components/Hero.jsx
 "use client";
 
+import RevealOnScroll from "@/components/RevealOnScroll";
+
 function PlaceholderLogo({ width = 96, height = 32 }) {
   return (
     <svg
@@ -21,8 +23,8 @@ function PlaceholderLogo({ width = 96, height = 32 }) {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28 relative">
+    <section className="relative overflow-hidden bg-[#FCFCFC] mt-[64px] md:mt-[72px]">
+      <RevealOnScroll threshold={0.6} className="max-w-6xl mx-auto px-6 py-20 lg:py-28 relative">
         {/* Badge */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm">
@@ -32,7 +34,7 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900 mb-6">
+        <h1 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight text-slate-900 mb-6">
           <span className="whitespace-nowrap">
             Temukan Pekerjaan {" "}
             <span className="relative inline-block text-blue-600 font-extrabold">
@@ -41,25 +43,8 @@ export default function Hero() {
               <svg className="absolute -bottom-2 left-0 w-[135%] h-4 text-blue-500" viewBox="0 0 140 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 14 C 30 4, 90 22, 138 10" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              {/* trophy badge stylized to match design */}
-              <span className="absolute -right-14 -top-3 hidden sm:block drop-shadow">
-                <svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="rotate(12 26 26)">
-                    <rect x="6" y="6" width="40" height="40" rx="11" fill="#2563EB"/>
-                    <g stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                      {/* bowl */}
-                      <path d="M18 20h16v1c0 4-4 7-8 7s-8-3-8-7v-1z"/>
-                      {/* stem */}
-                      <path d="M24 28v4h4v-4"/>
-                      {/* base */}
-                      <path d="M20 34h12v3H20z"/>
-                      {/* handles */}
-                      <path d="M18 21h-3c-2.5 0-3 5 1 5h2"/>
-                      <path d="M34 21h3c2.5 0 3 5-1 5h-2"/>
-                    </g>
-                  </g>
-                </svg>
-              </span>
+              {/* trophy -> emoji */}
+              <span className="absolute -right-12 -top-4 hidden sm:block text-3xl drop-shadow rotate-[28deg]">🏆</span>
             </span>
           </span>
           <br className="hidden sm:block" />
@@ -112,10 +97,12 @@ export default function Hero() {
         </div>
 
         {/* Removed floating trophy bubble; now attached to Strategis word */}
-      </div>
+      </RevealOnScroll>
 
-      {/* subtle radial backdrop glow, keeps base background white */}
-      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-24 -z-10 w-[900px] h-[520px] rounded-full bg-blue-100/50 blur-3xl"></div>
+      {/* radial circular background behind heading & subheading */}
+      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-6 -z-10">
+        <div className="w-[1100px] h-[1100px] rounded-full bg-blue-200/30 blur-[120px]"></div>
+      </div>
     </section>
   );
 }

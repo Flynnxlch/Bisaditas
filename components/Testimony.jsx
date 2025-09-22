@@ -1,17 +1,26 @@
 // components/Testimony.jsx
 "use client";
 
+import RevealOnScroll from "@/components/RevealOnScroll";
 import { useState } from "react";
 
 const faqs = [
   {
     q: "Apakah BisaDitas Hanya Untuk Penyandang Disabilitas?",
-    a: "Ya, BisaDitas didedikasikan khusus untuk membantu penyandang disabilitas menemukan peluang kerja yang sesuai dengan potensi mereka. Namun, perusahaan juga dapat bergabung untuk membuka lowongan kerja inklusif.",
+      a: "Ya, BisaDitas didedikasikan khusus untuk membantu penyandang disabilitas menemukan peluang kerja yang sesuai dengan potensi mereka. Namun, perusahaan juga dapat bergabung untuk membuka lowongan kerja inklusif.",
   },
-  { q: "Apakah Menggunakan BisaDitas Berbayar?", a: "Tidak, kandidat dapat menggunakan platform secara gratis." },
-  { q: "Jenis Pekerjaan Apa Saja Yang Tersedia Di BisaDitas?", a: "Berbagai posisi dari junior hingga senior, remote maupun onsite." },
-  { q: "Bagaimana Cara Melamar Pekerjaan Di BisaDitas?", a: "Buat profil, unggah CV, lalu lamar pekerjaan yang sesuai." },
-  { q: "Apakah Perusahaan Bisa Bekerja Sama Dengan BisaDitas?", a: "Bisa, perusahaan dapat membuka pekerjaan inklusif bersama kami." },
+  { q: "Apakah Menggunakan BisaDitas Berbayar?", 
+      a: "Tidak, kandidat dapat menggunakan platform secara gratis." 
+  },
+  { q: "Jenis Pekerjaan Apa Saja Yang Tersedia Di BisaDitas?", 
+      a: "Berbagai posisi dari junior hingga senior, remote maupun onsite." 
+  },
+  { q: "Bagaimana Cara Melamar Pekerjaan Di BisaDitas?", 
+      a: "Buat profil, unggah CV, lalu lamar pekerjaan yang sesuai." 
+  },
+  { q: "Apakah Perusahaan Bisa Bekerja Sama Dengan BisaDitas?", 
+      a: "Bisa, perusahaan dapat membuka pekerjaan inklusif bersama kami." 
+  },
 ];
 
 function StarRow() {
@@ -28,7 +37,7 @@ function StarRow() {
 
 function TestiCard({ text, name, role }) {
   return (
-    <div className="rounded-2xl border border-slate-200 p-5 bg-white hover:shadow-md transition-shadow">
+    <div className="rounded-2xl border border-slate-200 p-5 bg-[#FCFCFC] hover:shadow-md transition-shadow">
       <p className="text-slate-600 text-sm mb-5">“{text}”</p>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -51,10 +60,10 @@ export default function Testimony() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+    <section className="relative overflow-hidden bg-[#FCFCFC]">
+      <RevealOnScroll className="max-w-6xl mx-auto px-6 py-14">
         {/* FAQ + CTA */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-16">
+        <RevealOnScroll className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-16">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs sm:text-sm mb-4">
               <span className="w-2 h-2 rounded-full bg-blue-600 inline-block" />
@@ -63,20 +72,7 @@ export default function Testimony() {
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-3">
               Pertanyaan Yang Sering
               <br className="hidden sm:block" /> Ditanyakan
-              <span className="relative inline-block align-middle ml-2 rotate-6">
-                <svg width="28" height="28" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="rotate(12 26 26)">
-                    <rect x="6" y="6" width="40" height="40" rx="11" fill="#2563EB"/>
-                    <g stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none">
-                      <path d="M18 20h16v1c0 4-4 7-8 7s-8-3-8-7v-1z"/>
-                      <path d="M24 28v4h4v-4"/>
-                      <path d="M20 34h12v3H20z"/>
-                      <path d="M18 21h-3c-2.5 0-3 5 1 5h2"/>
-                      <path d="M34 21h3c2.5 0 3 5-1 5h-2"/>
-                    </g>
-                  </g>
-                </svg>
-              </span>
+              <span className="relative inline-flex items-center justify-center align-middle ml-2 w-8 h-8 rounded-xl text-white rotate-[20deg] text-sm">❓</span>
             </h3>
             <p className="text-slate-500 text-sm sm:text-base mb-5 max-w-lg">
               Semua yang perlu Anda ketahui tentang BisaDitas ada di sini. Cari jawabannya atau langsung hubungi kami.
@@ -102,10 +98,10 @@ export default function Testimony() {
               ))}
             </ul>
           </div>
-        </div>
+        </RevealOnScroll>
 
         {/* Testimony heading */}
-        <div className="text-center mb-8">
+        <RevealOnScroll className="text-center mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs sm:text-sm mb-4">
             <span className="w-2 h-2 rounded-full bg-blue-600 inline-block" />
             Testimoni
@@ -120,15 +116,15 @@ export default function Testimony() {
           <div className="text-xs text-slate-500 mt-2">
             Trusted by <span className="font-semibold text-slate-700">7.000+ users</span> <StarRow /> <span className="ml-1 align-middle">4.5/5</span>
           </div>
-        </div>
+        </RevealOnScroll>
 
         {/* Testimonials grid */}
         <div className="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" />
-          <TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" />
-          <TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" />
+          <RevealOnScroll delay={0}><TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" /></RevealOnScroll>
+          <RevealOnScroll delay={100}><TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" /></RevealOnScroll>
+          <RevealOnScroll delay={200}><TestiCard text="BisaDitas sangat membantu saya menemukan pekerjaan yang sesuai dengan kemampuan saya. Prosesnya mudah dan perusahaan yang saya temukan sangat ramah." name="Yoga Tonari" role="Mahasiswa" /></RevealOnScroll>
         </div>
-      </div>
+      </RevealOnScroll>
     </section>
   );
 }

@@ -1,9 +1,10 @@
 // app/layout.jsx
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
-  title: "BisaDitas - Bootcamp",
+  title: "BisaDitas",
   description: "Temukan pekerjaan strategis Anda dengan BisaDitas",
 };
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body className={`${jakarta.className} antialiased text-slate-800 bg-white`}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

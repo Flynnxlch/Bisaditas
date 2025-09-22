@@ -3,11 +3,12 @@
 import LoginCarousel from "@/components/LoginCarousel";
 import LoginForm from "@/components/LoginForm";
 import RegisterForm from "@/components/RegisterForm";
+import Regsu from "@/components/Regsu";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginPage() {
-  const [isRegister, setIsRegister] = useState(false);
+  const [mode, setMode] = useState("login"); // 'login' | 'register' | 'success'
 
   return (
     <section className="min-h-screen bg-white relative">
@@ -18,11 +19,14 @@ export default function LoginPage() {
 
       <div className="mx-auto max-w-6xl px-6 pt-16 pb-10 lg:pt-20 lg:pb-12 flex flex-col lg:flex-row items-start lg:items-center gap-10">
         <div className="relative w-full">
-          <div className={`transition-opacity duration-300 ${isRegister ? "opacity-0 pointer-events-none absolute inset-0" : "opacity-100 relative"}`}>
-            <LoginForm onSwitchToRegister={() => setIsRegister(true)} />
+          <div className={`transition-opacity duration-300 ${mode === "login" ? "opacity-100 relative" : "opacity-0 pointer-events-none absolute inset-0"}`}>
+            <LoginForm onSwitchToRegister={() => setMode("register")} />
           </div>
-          <div className={`transition-opacity duration-300 ${isRegister ? "opacity-100 relative" : "opacity-0 pointer-events-none absolute inset-0"}`}>
-            <RegisterForm onSwitchToLogin={() => setIsRegister(false)} />
+          <div className={`transition-opacity duration-300 ${mode === "register" ? "opacity-100 relative" : "opacity-0 pointer-events-none absolute inset-0"}`}>
+            <RegisterForm onSwitchToLogin={() => setMode("login")} onRegistered={() => setMode("success")} />
+          </div>
+          <div className={`transition-opacity duration-300 ${mode === "success" ? "opacity-100 relative" : "opacity-0 pointer-events-none absolute inset-0"}`}>
+            <Regsu onGoLogin={() => setMode("login")} />
           </div>
         </div>
         <span className="hidden lg:block w-[3px] self-stretch bg-transparent" />
