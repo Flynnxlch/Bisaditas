@@ -22,7 +22,23 @@ export default function LoginForm(props) {
 
       <form className="space-y-4">
         {/* TODO: Add backend connection function here for login authentication */}
-        {/* Example: const handleLogin = async (email, password) => { ... } */}
+        {/* Example: const handleLogin = async (email, password) => { 
+          try {
+            const response = await fetch('/api/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            if (data.success) {
+              // Store token, redirect to dashboard
+              localStorage.setItem('token', data.token);
+              router.push('/member/dashboard');
+            }
+          } catch (error) {
+            console.error('Login error:', error);
+          }
+        } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Gmail <span className="text-red-500">*</span></label>
           <input type="email" placeholder="Masukkan Gmail Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />

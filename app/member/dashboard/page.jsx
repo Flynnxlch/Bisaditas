@@ -2,6 +2,7 @@
 
 import DashContent from "@/components/content/DashContent";
 import JobDash from "@/components/JobDash";
+import MiniLead from "@/components/MiniLead";
 import NavDash from "@/components/NavDash";
 import SidebarMe from "@/components/SidebarMe";
 
@@ -18,8 +19,11 @@ export default function MemberDashboardPage() {
             {/* Main content column */}
             <DashContent />
 
-            {/* Right rail: latest jobs */}
-            <JobDash />
+            {/* Right rail: latest jobs and leaderboard */}
+            <div className="space-y-6">
+              <JobDash />
+              <MiniLead />
+            </div>
           </div>
         </main>
       </div>

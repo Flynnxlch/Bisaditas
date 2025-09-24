@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function MateriContent() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
   const materiItems = [
     {
       id: 1,
@@ -78,93 +81,88 @@ export default function MateriContent() {
     }
   ];
 
+  // Sample recommendation data
+  const recommendations = [
+    {
+      id: 1,
+      title: "Creating Design App UIUX",
+      description: "Membuat sebuah UIUX dari sebuah aplikasi mobile yang modern dan user-friendly",
+      category: "UI UX Design",
+      difficulty: "Menengah",
+      rating: "4.5/5",
+      isPopular: true
+    },
+    {
+      id: 2,
+      title: "Advanced Mobile Development",
+      description: "Belajar pengembangan aplikasi mobile dengan teknologi terbaru",
+      category: "Mobile Development",
+      difficulty: "Tinggi",
+      rating: "4.8/5",
+      isPopular: true
+    },
+    {
+      id: 3,
+      title: "Web Design Fundamentals",
+      description: "Dasar-dasar desain web modern dengan prinsip-prinsip terbaik",
+      category: "Web Design",
+      difficulty: "Pemula",
+      rating: "4.3/5",
+      isPopular: false
+    },
+    {
+      id: 4,
+      title: "Data Science Basics",
+      description: "Pengantar ilmu data dan analisis untuk pemula",
+      category: "Data Science",
+      difficulty: "Menengah",
+      rating: "4.6/5",
+      isPopular: true
+    },
+    {
+      id: 5,
+      title: "Digital Marketing Strategy",
+      description: "Strategi pemasaran digital yang efektif dan terukur",
+      category: "Marketing",
+      difficulty: "Pemula",
+      rating: "4.2/5",
+      isPopular: false
+    },
+    {
+      id: 6,
+      title: "Cloud Computing Essentials",
+      description: "Fundamental komputasi awan untuk pengembang modern",
+      category: "Cloud Computing",
+      difficulty: "Menengah",
+      rating: "4.7/5",
+      isPopular: true
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % recommendations.length);
+  };
+  
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + recommendations.length) % recommendations.length);
+  };
+
+  // Get the three cards to display (current, next, previous for looping effect)
+  const getVisibleCards = () => {
+    const cards = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % recommendations.length;
+      cards.push(recommendations[index]);
+    }
+    return cards;
+  };
+
   return (
     <div>
       {/* Header Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2 theme-transition" style={{color: 'var(--text-primary)'}}>
-          Learning Materials
-        </h1>
-        <p className="text-lg theme-transition" style={{color: 'var(--text-secondary)'}}>
-          Explore our comprehensive collection of courses and learning resources
-        </p>
-      </div>
+      
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: 'var(--accent-color)', opacity: 0.1}}>
-              <svg className="w-6 h-6" style={{color: 'var(--accent-color)'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>24</span>
-          </div>
-          <h3 className="font-semibold mb-1 theme-transition" style={{color: 'var(--text-primary)'}}>Active Courses</h3>
-          <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>Currently available</p>
-        </div>
 
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: '#10b981', opacity: 0.1}}>
-              <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>12</span>
-          </div>
-          <h3 className="font-semibold mb-1 theme-transition" style={{color: 'var(--text-primary)'}}>Completed</h3>
-          <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>This month</p>
-        </div>
-
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: '#f59e0b', opacity: 0.1}}>
-              <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>156h</span>
-          </div>
-          <h3 className="font-semibold mb-1 theme-transition" style={{color: 'var(--text-primary)'}}>Study Time</h3>
-          <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>This month</p>
-        </div>
-      </div>
-
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {['All', 'Web Development', 'Frontend Development', 'Backend Development', 'Design', 'Mobile Development', 'Cloud Computing'].map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              category === 'All' 
-                ? 'text-white' 
-                : 'theme-transition'
-            }`}
-            style={{
-              backgroundColor: category === 'All' ? 'var(--accent-color)' : 'transparent',
-              color: category === 'All' ? 'white' : 'var(--text-secondary)',
-              borderColor: 'var(--border-color)',
-              borderWidth: '1px'
-            }}
-            onMouseEnter={(e) => {
-              if (category !== 'All') {
-                e.target.style.backgroundColor = 'var(--hover-bg)';
-                e.target.style.color = 'var(--text-primary)';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (category !== 'All') {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = 'var(--text-secondary)';
-              }
-            }}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
 
       {/* Course Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -256,6 +254,116 @@ export default function MateriContent() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Recommendations Carousel */}
+      <div className="mt-16 mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-[13px] font-semibold theme-transition" style={{color: 'var(--text-primary)'}}>Rekomendasi Untuk Anda</h3>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={prevSlide}
+              className="p-2 rounded-full hover:bg-opacity-50 theme-transition" 
+              style={{
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-secondary)',
+                borderWidth: '1px',
+                backgroundColor: 'var(--card-bg)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'var(--hover-bg)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'var(--card-bg)';
+              }}
+              aria-label="Previous"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="p-2 rounded-full hover:bg-opacity-50 theme-transition" 
+              style={{
+                borderColor: 'var(--border-color)',
+                color: 'var(--text-secondary)',
+                borderWidth: '1px',
+                backgroundColor: 'var(--card-bg)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'var(--hover-bg)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'var(--card-bg)';
+              }}
+              aria-label="Next"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div className="relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {getVisibleCards().map((course, index) => (
+              <article key={`${course.id}-${currentIndex}-${index}`} className="rounded-2xl overflow-hidden hover:shadow-md transition-all theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image src="/thumbnail/thumb1.png" alt={course.title} fill className="object-cover" />
+                  {course.isPopular && (
+                    <div className="absolute top-3 left-3 px-2 py-1 rounded-full text-xs flex items-center gap-1 theme-transition" style={{backgroundColor: 'var(--text-primary)', color: 'var(--bg-primary)'}}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                      Populer
+                    </div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <div className="mb-2">
+                    <span className="inline-block px-2 py-1 rounded-full text-xs font-medium theme-transition" style={{backgroundColor: 'var(--hover-bg)', color: 'var(--text-primary)'}}>
+                      {course.category}
+                    </span>
+                  </div>
+                  <h4 className="font-semibold mb-1 theme-transition" style={{color: 'var(--text-primary)'}}>{course.title}</h4>
+                  <p className="text-sm mb-3 theme-transition" style={{color: 'var(--text-secondary)'}}>{course.description}</p>
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center gap-1 theme-transition" style={{color: 'var(--text-secondary)'}}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 3h18v18H3zM9 9h6v6H9z"/>
+                        <path d="M9 3v6M15 3v6M9 15v6M15 15v6"/>
+                      </svg>
+                      {course.difficulty}
+                    </div>
+                    <div className="flex items-center gap-1 theme-transition" style={{color: 'var(--text-secondary)'}}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                      {course.rating}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        
+        {/* Slide indicators */}
+        <div className="flex justify-center gap-2 mt-4">
+          {recommendations.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className="w-2 h-2 rounded-full transition-colors theme-transition"
+              style={{
+                backgroundColor: index === currentIndex ? 'var(--text-primary)' : 'var(--text-secondary)'
+              }}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

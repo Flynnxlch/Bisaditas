@@ -23,7 +23,26 @@ export default function RegisterForm(props) {
 
       <form className="space-y-4">
         {/* TODO: Add backend connection function here for user registration */}
-        {/* Example: const handleRegister = async (name, email, password) => { ... } */}
+        {/* Example: const handleRegister = async (name, email, password) => { 
+          try {
+            const response = await fetch('/api/auth/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, password })
+            });
+            const data = await response.json();
+            if (data.success) {
+              // Show success message, redirect to login or dashboard
+              alert('Registration successful!');
+              router.push('/auth/login');
+            } else {
+              alert('Registration failed: ' + data.message);
+            }
+          } catch (error) {
+            console.error('Registration error:', error);
+            alert('Registration failed. Please try again.');
+          }
+        } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Nama <span className="text-red-500">*</span></label>
           <input type="text" placeholder="Masukkan Nama Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />
