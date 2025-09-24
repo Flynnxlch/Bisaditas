@@ -22,6 +22,8 @@ export default function RegisterForm(props) {
       <p className="text-slate-500 text-sm mb-8">Silahkan masukkan Gmail dan Password milik Anda.</p>
 
       <form className="space-y-4">
+        {/* TODO: Add backend connection function here for user registration */}
+        {/* Example: const handleRegister = async (name, email, password) => { ... } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Nama <span className="text-red-500">*</span></label>
           <input type="text" placeholder="Masukkan Nama Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />

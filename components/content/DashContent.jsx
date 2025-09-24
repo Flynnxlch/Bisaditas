@@ -3,7 +3,7 @@
 import MemberDashboardBanner from "@/components/MemberDashboardBanner";
 import Image from "next/image";
 
-export default function DashPage() {
+export default function DashContent() {
   return (
     <div>
       <div className="mb-6">

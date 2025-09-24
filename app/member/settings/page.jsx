@@ -1,8 +1,8 @@
 "use client";
 
+import SettingsContent from "@/components/content/SettingsContent";
 import JobDash from "@/components/JobDash";
 import NavDash from "@/components/NavDash";
-import SettingsContent from "@/components/SettingsContent";
 import SidebarMe from "@/components/SidebarMe";
 
 export default function MemberSettingsPage() {

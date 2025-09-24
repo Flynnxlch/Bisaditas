@@ -54,6 +54,8 @@ export default function NavDash() {
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full theme-transition" style={{backgroundColor: 'var(--text-secondary)'}} />
           <div className="leading-tight">
+            {/* TODO: Add backend connection function here to fetch user data */}
+            {/* Example: const { userData } = useUserData(); */}
             <div className="text-xs font-semibold theme-transition" style={{color: 'var(--text-primary)'}}>Chris Miguel</div>
             <div className="text-[10px] theme-transition" style={{color: 'var(--text-secondary)'}}>Freelancer</div>
           </div>

@@ -1,8 +1,8 @@
 "use client";
 
+import SertifikasiContent from "@/components/content/SertifikasiContent";
 import JobDash from "@/components/JobDash";
 import NavDash from "@/components/NavDash";
-import SertifikasiContent from "@/components/SertifikasiContent";
 import SidebarMe from "@/components/SidebarMe";
 
 export default function MemberSertifikasiPage() {

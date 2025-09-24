@@ -1,7 +1,7 @@
 "use client";
 
+import MentorshipContent from "@/components/content/MentorshipContent";
 import JobDash from "@/components/JobDash";
-import MentorshipContent from "@/components/MentorshipContent";
 import NavDash from "@/components/NavDash";
 import SidebarMe from "@/components/SidebarMe";
 

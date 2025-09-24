@@ -21,6 +21,8 @@ export default function LoginForm(props) {
       <p className="text-slate-500 text-sm mb-8">Silahkan masukkan Gmail dan Password milik Anda.</p>
 
       <form className="space-y-4">
+        {/* TODO: Add backend connection function here for login authentication */}
+        {/* Example: const handleLogin = async (email, password) => { ... } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Gmail <span className="text-red-500">*</span></label>
           <input type="email" placeholder="Masukkan Gmail Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />

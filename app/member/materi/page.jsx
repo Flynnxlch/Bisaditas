@@ -1,7 +1,7 @@
 "use client";
 
+import MateriContent from "@/components/content/MateriContent";
 import JobDash from "@/components/JobDash";
-import MateriContent from "@/components/MateriContent";
 import NavDash from "@/components/NavDash";
 import SidebarMe from "@/components/SidebarMe";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import DashPage from "@/components/DashPage";
+import DashContent from "@/components/content/DashContent";
 import JobDash from "@/components/JobDash";
 import NavDash from "@/components/NavDash";
 import SidebarMe from "@/components/SidebarMe";
@@ -16,7 +16,7 @@ export default function MemberDashboardPage() {
           {/* Two-column content: main + right rail */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 items-start">
             {/* Main content column */}
-            <DashPage />
+            <DashContent />
 
             {/* Right rail: latest jobs */}
             <JobDash />
