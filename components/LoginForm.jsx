@@ -5,9 +5,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import {apiFetch, API_BASE_URL} from "@/components/RegisterForm";
+
 export default function LoginForm(props) {
   const { onSwitchToRegister } = props || {};
   const [showPassword, setShowPassword] = useState(false);
+
+  const login = async (
+   email,
+   password
+) => {
+   try {
+      const response = await apiFetch(`${API_BASE_URL}/v1/auth/login`, {
+         method: "POST",
+         body: JSON.stringify({ email, password }),
+      })
+
+      if (!response.ok) {
+         return null
+      }
+      const res = await response.json()
+      console.log("Login successful:", res)
+      return res
+   } catch (error) {
+      console.error("Login failed:", error)
+      return null
+   }
+}
+
+
   return (
     <div className="max-w-md w-full mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 mb-8">
