@@ -5,10 +5,58 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080/api";
+
 export default function RegisterForm(props) {
   const { onSwitchToLogin, onRegistered } = props || {};
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const apiFetch = async (
+   url,
+   options
+) => {
+   const auth = localStorage.getItem("auth")
+   const token = auth ? JSON.parse(auth).token : null
+
+   const defaultHeaders = {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+   }
+
+   const headers = token ? {
+      ...defaultHeaders,
+      "Authorization": `Bearer ${token}`
+   } : defaultHeaders
+
+   return window.fetch(url, {
+      ...options,
+      headers
+   })
+}
+
+  const register = async (
+   name,
+   email,
+   password
+  ) => {
+   try {
+      const response = await apiFetch(`${API_BASE_URL}/v1/auth/register`, {
+         method: "POST",
+         body: JSON.stringify({ name, email, password }),
+      })
+
+      if (!response.ok) {
+         return null
+      }
+
+      return await response.json()
+   } catch (error) {
+      console.error("Registration failed:", error)
+      return null
+   }
+}
+
   return (
     <div className="max-w-md w-full mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 mb-8">
@@ -22,8 +70,6 @@ export default function RegisterForm(props) {
       <p className="text-slate-500 text-sm mb-8">Silahkan masukkan Gmail dan Password milik Anda.</p>
 
       <form className="space-y-4">
-        {/* TODO: Add backend connection function here for user registration */}
-        {/* Example: const handleRegister = async (name, email, password) => { ... } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Nama <span className="text-red-500">*</span></label>
           <input type="text" placeholder="Masukkan Nama Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />
