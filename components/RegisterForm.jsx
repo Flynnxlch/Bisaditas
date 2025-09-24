@@ -9,6 +9,16 @@ export default function RegisterForm(props) {
   const { onSwitchToLogin, onRegistered } = props || {};
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleRegister = () => {
+    // Simple prototype - just call callback or redirect to success page
+    if (onRegistered) {
+      onRegistered();
+    } else {
+      window.location.href = '/auth/register/success';
+    }
+  };
+
   return (
     <div className="max-w-md w-full mx-auto">
       <Link href="/" className="inline-flex items-center gap-2 mb-8">
@@ -22,34 +32,21 @@ export default function RegisterForm(props) {
       <p className="text-slate-500 text-sm mb-8">Silahkan masukkan Gmail dan Password milik Anda.</p>
 
       <form className="space-y-4">
-        {/* TODO: Add backend connection function here for user registration */}
-        {/* Example: const handleRegister = async (name, email, password) => { 
-          try {
-            const response = await fetch('/api/auth/register', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, password })
-            });
-            const data = await response.json();
-            if (data.success) {
-              // Show success message, redirect to login or dashboard
-              alert('Registration successful!');
-              router.push('/auth/login');
-            } else {
-              alert('Registration failed: ' + data.message);
-            }
-          } catch (error) {
-            console.error('Registration error:', error);
-            alert('Registration failed. Please try again.');
-          }
-        } */}
         <div>
           <label className="block text-sm text-slate-700 mb-1">Nama <span className="text-red-500">*</span></label>
-          <input type="text" placeholder="Masukkan Nama Anda....." className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />
+          <input 
+            type="text" 
+            placeholder="Masukkan Nama Anda....." 
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" 
+          />
         </div>
         <div>
           <label className="block text-sm text-slate-700 mb-1">Gmail <span className="text-red-500">*</span></label>
-          <input type="email" placeholder="Masukkan Gmail Anda" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" />
+          <input 
+            type="email" 
+            placeholder="Masukkan Gmail Anda" 
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/60" 
+          />
         </div>
         <div>
           <label className="block text-sm text-slate-700 mb-1">Password <span className="text-red-500">*</span></label>
@@ -77,12 +74,14 @@ export default function RegisterForm(props) {
             </div>
           </div>
         </div>
-
-        {onRegistered ? (
-          <button type="button" onClick={onRegistered} className="w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium shadow transition">Daftar Sekarang</button>
-        ) : (
-          <Link href="/auth/register/success" className="w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium shadow transition">Daftar Sekarang</Link>
-        )}
+        
+        <button 
+          type="button" 
+          onClick={handleRegister}
+          className="w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium shadow transition"
+        >
+          Daftar Sekarang
+        </button>
         <div className="flex items-center gap-4 my-4">
           <span className="flex-1 h-px bg-slate-200" />
           <span className="text-xs text-slate-400">Atau Daftar dengan</span>
@@ -108,5 +107,3 @@ export default function RegisterForm(props) {
     </div>
   );
 }
-
-

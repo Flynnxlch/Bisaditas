@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function NavDash() {
   return (
     <div className="flex items-center justify-between gap-4 mb-5">
@@ -52,7 +54,14 @@ export default function NavDash() {
                 }}
                 aria-label="notif">🔔</button>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full theme-transition" style={{backgroundColor: 'var(--text-secondary)'}} />
+          <div className="relative w-8 h-8 rounded-full overflow-hidden">
+            <Image 
+              src="/Avatars/manwc.png" 
+              alt="User Avatar" 
+              fill 
+              className="object-cover" 
+            />
+          </div>
           <div className="leading-tight">
             {/* TODO: Add backend connection function here to fetch user data */}
             {/* Example: const { userData } = useUserData(); */}
