@@ -3,8 +3,8 @@
 import Image from "next/image";
 
 export default function LastReadBanner({ 
-  title = "UIUX Designer 101",
-  description = "Materi Fundamental tentang UIUX Designer",
+  title = "Fundamentals of Web Development",
+  description = "Learn the basics of HTML, CSS, and JavaScript to build modern web applications",
   progress = 75,
   thumbnail = "/thumbnail/thumb1.png"
 }) {

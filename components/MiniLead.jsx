@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FaFire } from "react-icons/fa";
 
 export default function MiniLead() {
@@ -82,7 +83,7 @@ export default function MiniLead() {
       <aside className="space-y-3 max-h-96 overflow-hidden">
       <div className="flex items-center justify-between">
         <div className="text-sm font-semibold theme-transition" style={{color: 'var(--text-primary)'}}>Leaderboard</div>
-        <a href="#" className="text-xs text-blue-600">See All</a>
+        <Link href="/member/leaderboard" className="text-xs text-blue-600 hover:text-blue-800 transition-colors">See All</Link>
       </div>
       
       <div className="space-y-3">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function MemberDashboardBanner() {
+export default function MemberDashboardBanner({ onCompleteForm }) {
   return (
     <div className="relative w-full overflow-visible">
       {/* Banner background with star pattern */}
@@ -23,7 +23,10 @@ export default function MemberDashboardBanner() {
         <div className="relative z-10">
           <div className="text-lg md:text-xl font-medium mb-1">Anda Belum Melengkapi</div>
           <div className="text-2xl md:text-3xl font-semibold">Identitas Diri!</div>
-          <button className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors">
+          <button 
+            onClick={onCompleteForm}
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
             Lengkapi Sekarang
             <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
               <svg className="w-2 h-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">

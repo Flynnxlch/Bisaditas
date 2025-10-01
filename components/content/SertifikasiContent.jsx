@@ -1,6 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import {
+    FaAward,
+    FaCertificate,
+    FaCheckCircle,
+    FaClock,
+    FaDownload,
+    FaEye,
+    FaRocket,
+    FaShieldAlt,
+    FaStar,
+    FaUsers
+} from "react-icons/fa";
 
 export default function SertifikasiContent() {
   const certifications = [
@@ -117,12 +129,10 @@ export default function SertifikasiContent() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
+        <div className="rounded-2xl p-6 theme-transition hover:shadow-lg transition-all duration-300" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: 'var(--accent-color)', opacity: 0.1}}>
-              <svg className="w-6 h-6" style={{color: 'var(--accent-color)'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+              <FaCertificate className="w-6 h-6" />
             </div>
             <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>2</span>
           </div>
@@ -130,12 +140,10 @@ export default function SertifikasiContent() {
           <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>Certifications</p>
         </div>
 
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
+        <div className="rounded-2xl p-6 theme-transition hover:shadow-lg transition-all duration-300" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: '#10b981', opacity: 0.1}}>
-              <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+            <div className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-green-600 text-white">
+              <FaRocket className="w-6 h-6" />
             </div>
             <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>4</span>
           </div>
@@ -143,12 +151,10 @@ export default function SertifikasiContent() {
           <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>Certifications</p>
         </div>
 
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
+        <div className="rounded-2xl p-6 theme-transition hover:shadow-lg transition-all duration-300" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: '#f59e0b', opacity: 0.1}}>
-              <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white">
+              <FaAward className="w-6 h-6" />
             </div>
             <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>89%</span>
           </div>
@@ -156,12 +162,10 @@ export default function SertifikasiContent() {
           <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>Last 6 months</p>
         </div>
 
-        <div className="rounded-2xl p-6 theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
+        <div className="rounded-2xl p-6 theme-transition hover:shadow-lg transition-all duration-300" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-xl" style={{backgroundColor: '#8b5cf6', opacity: 0.1}}>
-              <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+            <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+              <FaShieldAlt className="w-6 h-6" />
             </div>
             <span className="text-2xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>12</span>
           </div>
@@ -187,10 +191,12 @@ export default function SertifikasiContent() {
                     {cert.title}
                   </h3>
                   <div className="flex items-center gap-4 mb-3">
-                    <span className="px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100">
+                    <span className="px-2 py-1 rounded-full text-xs font-medium text-green-600 bg-green-100 flex items-center gap-1">
+                      <FaCheckCircle className="w-3 h-3" />
                       {cert.status}
                     </span>
-                    <span className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>
+                    <span className="text-sm theme-transition flex items-center gap-1" style={{color: 'var(--text-secondary)'}}>
+                      <FaAward className="w-3 h-3" />
                       Score: {cert.score}%
                     </span>
                   </div>
@@ -198,7 +204,8 @@ export default function SertifikasiContent() {
                     Completed on {new Date(cert.completedDate).toLocaleDateString()}
                   </p>
                 </div>
-                <button className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90" style={{backgroundColor: 'var(--accent-color)'}}>
+                <button className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90 flex items-center gap-2" style={{backgroundColor: 'var(--accent-color)'}}>
+                  <FaEye className="w-4 h-4" />
                   View Certificate
                 </button>
               </div>
@@ -283,9 +290,7 @@ export default function SertifikasiContent() {
                     {cert.title}
                   </h3>
                   <div className="flex items-center gap-1">
-                    <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+                    <FaStar className="w-4 h-4 text-amber-400" />
                     <span className="text-sm font-medium theme-transition" style={{color: 'var(--text-primary)'}}>
                       {cert.rating}
                     </span>
@@ -299,15 +304,11 @@ export default function SertifikasiContent() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-4 text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>
                     <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <FaClock className="w-4 h-4" />
                       {cert.duration}
                     </span>
                     <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
+                      <FaUsers className="w-4 h-4" />
                       {cert.students.toLocaleString()}
                     </span>
                   </div>
@@ -322,7 +323,8 @@ export default function SertifikasiContent() {
                       {cert.price}
                     </p>
                   </div>
-                  <button className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90" style={{backgroundColor: 'var(--accent-color)'}}>
+                  <button className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90 flex items-center gap-2" style={{backgroundColor: 'var(--accent-color)'}}>
+                    <FaDownload className="w-4 h-4" />
                     Enroll Now
                   </button>
                 </div>

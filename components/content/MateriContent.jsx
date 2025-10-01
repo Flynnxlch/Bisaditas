@@ -160,13 +160,23 @@ export default function MateriContent() {
   return (
     <div>
       {/* Header Section */}
-      
-
-
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-2">
+          <h2 className="text-xl font-bold theme-transition" style={{color: 'var(--text-primary)'}}>
+            Materi Yang Sedang Dipelajari
+          </h2>
+          <button className="text-sm font-medium theme-transition hover:opacity-80 transition-opacity" style={{color: 'var(--accent-color)'}}>
+            Lihat Semua ({materiItems.length})
+          </button>
+        </div>
+        <p className="text-sm theme-transition" style={{color: 'var(--text-secondary)'}}>
+          Lanjutkan pembelajaran Anda dengan materi-materi berikut
+        </p>
+      </div>
 
       {/* Course Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {materiItems.map((item) => (
+        {materiItems.slice(0, 3).map((item) => (
           <div key={item.id} className="rounded-2xl overflow-hidden theme-transition" style={{borderColor: 'var(--border-color)', backgroundColor: 'var(--card-bg)', borderWidth: '1px'}}>
             <div className="relative aspect-video">
               <Image 
@@ -255,6 +265,7 @@ export default function MateriContent() {
           </div>
         ))}
       </div>
+
 
       {/* Recommendations Carousel */}
       <div className="mt-16 mb-8">
